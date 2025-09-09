@@ -13,7 +13,6 @@ public class App {
         System.out.println("My name is Macy Culbertson and I am 15 years old.");
         System.out.println("My mom's name is Ashley and my dad's name is Ben");
         System.out.println("I have four other siblings named "+sisterOne+", "+brotherOne+", "+sisterTwo+" and "+sisterThree+".");
-    }
-} {
-    
-}
+    }}
+ 
+   
