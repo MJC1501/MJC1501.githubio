@@ -21,7 +21,43 @@ int sum = 0;
       sum = sum + i;
 }
         System.out.println("Sum is " + sum);
-  }
-}
   
+
+  // array groups numbers together and organizes them. 
+// For SD class modified old program
+// Date 9/17/25
+       class EvenOddArraySum {
+
+    public static void main(String[] args) {
+        
+        int[] numbers = new int[100];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = i + 1;
+        }
+
+        
+        long totalSum = 0; 
+        for (int i = 0; i < numbers.length; i++) {
+            int currentNumber = numbers[i];
+            if (currentNumber % 2 == 0) {
+                System.out.println(currentNumber + " is Even");
+            } else {
+                System.out.println(currentNumber + " is Odd");
+            }
+            totalSum += currentNumber;
+        }
+
+        
+        System.out.println("The total sum of all numbers in the array is: " + totalSum);
+    }
+
+    @Override
+    public String toString() {
+      return "EvenOddArraySum []";
+    }
+}
+      
+        }
+      }
+
 
