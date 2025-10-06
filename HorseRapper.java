@@ -1,3 +1,6 @@
+//Macy Culbertson
+// For SD class 2025
+// outputs horses with name and year born
 public class HorseRapper {
 public static void main(String[] args) {
     
