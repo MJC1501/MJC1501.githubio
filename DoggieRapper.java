@@ -18,7 +18,7 @@ public class DoggieRapper {
        
         System.out.println("\n Dog 2 Actions ");
         dog2.displayInfo();
-        dog2.name = "Ducky the King"; // Change name attribute
+        dog2.name = "Ducky"; // Change name attribute
         dog2.bark();
         dog2.fetch("Duck Dummy");
         dog2.oneYearGoesBy(); // Change age attribute
