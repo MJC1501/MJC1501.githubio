@@ -1,3 +1,5 @@
+//Macy Culbertson
+// For SD class
 class Doggie {
     String name;
     String breed;    int age;
@@ -10,12 +12,10 @@ class Doggie {
         System.out.println("Name: " + name + ", Breed: " + breed + ", Age: " + age);
     }
     
-    // Method to simulate a dog barking
     public void bark() {
         System.out.println(name + " barks!");
     }
 
-    // Method to simulate fetching
     public void fetch(String item) {
         System.out.println(name + " fetches the " + item + ".");}
         public void oneYearGoesBy() {

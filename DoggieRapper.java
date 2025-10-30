@@ -1,13 +1,15 @@
+//Macy Culbertson
+// For SD class
 public class DoggieRapper {
     public static void main(String[] args) {
-        // Create Doggie objects
+       
         Doggie dog1 = new Doggie("Birdie", "Golden Retriever", 1);
         Doggie dog2 = new Doggie("Ducky", "Brittney", 3);
         Doggie dog3 = new Doggie("Tate", "Pointer", 5);
 
-        // Create ShowDoggie and HuntingDoggie objects
-        ShowDoggie myShowDoggie = new ShowDoggie("Kudos", "Spaniel", 5, "Agility", 10);
-        HuntingDoggie myHuntingDoggie = new HuntingDoggie("Fred", "German Wired hair Pointer", 4, "Duck hunting", true);
+        
+        ShowDoggie myShowDoggie = new ShowDoggie("Kudos", "Spaniel", 5, "Agility", 19);
+        HuntingDoggie myHuntingDoggie = new HuntingDoggie("Fred", "German Wired hair Pointer", 7, "Duck hunting", true);
 
         // Actions for Dog 1
         System.out.println("--- Dog 1 Actions ---");
@@ -45,6 +47,6 @@ public class DoggieRapper {
         myHuntingDoggie.displayInfo();
         myHuntingDoggie.bark();
         myHuntingDoggie.trackPrey();
-        myHuntingDoggie.setCurrentlyHunting(false);
+        myHuntingDoggie.setCurrentlyHunting(true);
         myHuntingDoggie.displayInfo();
     }}
