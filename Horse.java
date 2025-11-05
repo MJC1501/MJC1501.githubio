@@ -1,7 +1,6 @@
  
 //Simple horse class created by Kim Gross
 //for CTE Software Development class 202
-
 public class Horse {
     
 
@@ -29,6 +28,9 @@ public class Horse {
     }
         
 }
+
+
+
 
 
 

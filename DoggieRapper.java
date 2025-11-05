@@ -49,4 +49,5 @@ public class DoggieRapper {
         myHuntingDoggie.trackPrey();
         myHuntingDoggie.setCurrentlyHunting(true);
         myHuntingDoggie.displayInfo();
-    }}
+    }
+}

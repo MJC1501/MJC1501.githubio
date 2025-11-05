@@ -25,5 +25,8 @@ class HuntingDoggie extends Doggie {
     public void setCurrentlyHunting(boolean currentlyHunting) {
         this.currentlyHunting = currentlyHunting;
         System.out.println(name + " hunting status set to: " + currentlyHunting);
+    
     }
+    
 }
+
