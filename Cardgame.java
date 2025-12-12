@@ -6,12 +6,13 @@ public class Cardgame {
         Deck deck = new Deck();
         deck.shuffle();
 
+        
         // Five players, each getting 7 cards
-        Hand player1Hand = new Hand();
-        Hand player2Hand = new Hand();
-        Hand player3Hand = new Hand();
-        Hand player4Hand = new Hand();
-        Hand player5Hand = new Hand();
+        Hand player1Hand = new Hand("player 1");
+        Hand player2Hand = new Hand("player 2");
+        Hand player3Hand = new Hand("player 3");
+        Hand player4Hand = new Hand("player 4");
+        Hand player5Hand = new Hand("player 5");
 
         ArrayList<Hand> players = new ArrayList<>();
         players.add(player1Hand);
@@ -19,6 +20,7 @@ public class Cardgame {
         players.add(player3Hand);
         players.add(player4Hand);
         players.add(player5Hand);
+    
 
         for (int i = 0; i < 7; i++) {
             for (Hand hand : players) {
@@ -39,7 +41,8 @@ public class Cardgame {
 
         Hand winner = determineWinner(players);
         if (winner != null) {
-            System.out.println("\nWinner's Hand (highest single card):");
+            System.out.println(winner.owner + " is the winner" + " (highest single card):");
+            System.out.println();
             System.out.println(winner);
         } else {
             System.out.println("\nNo winner determined.");
@@ -61,6 +64,7 @@ public class Cardgame {
         for (int i = 1; i < players.size(); i++) {
             Hand currentPlayerHand = players.get(i);
             if (!currentPlayerHand.getCards().isEmpty()) {
+                currentPlayerHand.sortHand();
                 int currentCardValue = currentPlayerHand.getCards().get(0).getValue();
                 if (currentCardValue > highestCardValue) {
                     winner = currentPlayerHand;
