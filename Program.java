@@ -44,7 +44,7 @@ public class Program {
      }
         
         try {
-        System.out.println("Hello, Ms. or mr. " + userlastname + " or can I call you " + userfirstname);
+        System.out.println("Hello, Ms. or Mr. " + userlastname + " or can I call you " + userfirstname);
         } finally {
             System.out.println("End of program");
         }
