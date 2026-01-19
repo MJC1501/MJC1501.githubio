@@ -5,22 +5,32 @@ public class Program {
     public static void main(String[] args) {
     Scanner userInput = new Scanner(System.in);
     boolean validInput = false;
+   
+        String userfirstname = "";
+        String userlastname = "";
+        int userAge = 0;
+        Float usernumber = 0.0f;
+
 
      while (!validInput) {
        try {
-       System.out.println("Enter your name:");
-            String username = userInput.nextLine();
-            System.out.println("Thank you for inputing the line, I read username");
+       System.out.println("Enter your first name:");
+           userfirstname = userInput.nextLine();
+            System.out.println("Thank you for inputing the line, I read userfirstname");
+
+        System.out.println("Enter your last name");
+            userlastname = userInput.nextLine();
+            System.out.println("Thank you for inputing the line, I read userlastname");
                 
        
       System.out.println("Enter your age:");
-            int userAge = userInput.nextInt();
+           userAge = userInput.nextInt();
             System.out.println("Thank you for inputing the int, I read userage");
                 
         
     System.out.println("Enter a floating-point numner:");
-            float usernumber = userInput.nextFloat();
-            System.out.println("Thank you for inputing the float, I read usernumber");
+             usernumber = userInput.nextFloat();
+            System.out.println("Thank you for inputing the float, I read float number");
                 validInput = true; 
 
             } catch (InputMismatchException e) {
@@ -34,7 +44,7 @@ public class Program {
      }
         
         try {
-        System.out.println("Hello, Ms. Culbertson or can I call you Macy");
+        System.out.println("Hello, Ms. or mr. " + userlastname + " or can I call you " + userfirstname);
         } finally {
             System.out.println("End of program");
         }
