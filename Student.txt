@@ -1,0 +1,4 @@
+ User first name is Macy
+User last name is Culbertson
+ User grade is Tenth
+ User school name is IHLA

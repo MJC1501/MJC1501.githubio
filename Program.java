@@ -1,5 +1,9 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
+//Macy Culbertson
+//inport scanner project
+//2026 SD Class 2
+
 public class Program {
 
     public static void main(String[] args) {
