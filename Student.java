@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException; 
 import java.util.Scanner;
@@ -7,8 +8,8 @@ import java.util.InputMismatchException;
 // SD Class 2
 // 2026
 // File writing program week two
-
 public class Student {
+  
   public static void main(String[] args) {
     Scanner userInput = new Scanner(System.in);
     
@@ -55,8 +56,21 @@ public class Student {
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                     e.printStackTrace();
-            }
-        }
-    } 
+                    
+                    String path = br.readLine();
+
+        FileReader fr = new FileReader(path);
+
+        int i;
+      
+        // Holds true till there is nothing to read
+        while ((i = fr.read()) != -1)
+
+            // Print all the content of a file
+            System.out.print((char)i);
+      }
+    }
+}
+     
 
 
