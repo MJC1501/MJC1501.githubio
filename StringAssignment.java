@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+//Macy Culbertson
+// SD Class B
+// String manipulation assignment
 public class StringAssignment {
     public static void main(String[] args) {
       
