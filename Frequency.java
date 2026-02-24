@@ -1,7 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
-
+//Macy Culbertson
+// File where the frequency txt file is organized
+//SD class 2026
 public class Frequency {
 
     public static void main(String[] args) {
@@ -56,5 +62,5 @@ public class Frequency {
       
         System.out.printf("Total\t%d\t\t%.2f%%\n", totalFreq, totalPercentage);
     }
+     
 }
-

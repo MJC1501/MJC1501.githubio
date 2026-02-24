@@ -1,0 +1,10 @@
+Macy Culbertson|1|Driggs|Idaho|blue
+1|
+Caroline schelhammer|0|Grand Rapids|Idaho|pink
+1|
+Sydney Otis|1|Alta|Wyoming|yellow
+2|
+Maura Anderson|4|Victor|Idaho|green
+6|
+Christy Jacobson|3|Victor|Idaho|orange
+9|
