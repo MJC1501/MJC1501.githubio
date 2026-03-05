@@ -53,7 +53,7 @@ public class Userinput {
                 String userfavoritecolor = userInput.nextLine();
 
                 pw.println(userfullname + delimiter + usernumberofdogs + delimiter + usercity + delimiter + userstate + delimiter + userfavoritecolor);
-                pw.println (totalDogs + delimiter);
+                
             }
 
             double averageDogs = (double) totalDogs / numberOfRecords;
@@ -65,6 +65,7 @@ public class Userinput {
         } catch (IOException e) {
             System.err.println("An error occurred while writing to the file: " + e.getMessage());
             e.printStackTrace();
+            System.out.println(fileName);
         }
     }
 }

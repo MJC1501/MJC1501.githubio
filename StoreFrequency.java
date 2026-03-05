@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,8 +25,11 @@ public class StoreFrequency {
         
       
         String path = br.readLine();
+            String data = readFileAsString(path);
+            System.out.println("--- File Content ---");
+            System.out.println(data);
+            System.out.println("--------------------");
       
-        String data = readFileAsString(path);
       
         System.out.println(data);
         
@@ -36,6 +40,7 @@ String[] strArray = str.split("*");
 
 for (String s : strArray) {
     System.out.println(s);
+
         }
     }
 }

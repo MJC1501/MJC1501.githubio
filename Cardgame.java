@@ -1,26 +1,28 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+//Macy Culbertson
+// Cardgame where first player to get a run of four wins
+// User input added to make the game more interactive
+//3/05/26
 public class Cardgame {
  
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         Deck deck = new Deck();
         deck.shuffle();
 
-        
-        // Five players, each getting 7 cards
-        Hand player1Hand = new Hand("player 1");
-        Hand player2Hand = new Hand("player 2");
-        Hand player3Hand = new Hand("player 3");
-        Hand player4Hand = new Hand("player 4");
-        Hand player5Hand = new Hand("player 5");
+        List<Hand> players = new ArrayList<>();
+        int numPlayers = 5;
+        Scanner scanner = new Scanner(System.in);
 
-        ArrayList<Hand> players = new ArrayList<>();
-        players.add(player1Hand);
-        players.add(player2Hand);
-        players.add(player3Hand);
-        players.add(player4Hand);
-        players.add(player5Hand);
-    
+      
+        for (int i = 1; i <= numPlayers; i++) {
+            System.out.print("Enter Player " + i + "'s name: ");
+            String playerName = scanner.nextLine();
+            players.add(new Hand(playerName));
+        }
 
         for (int i = 0; i < 7; i++) {
             for (Hand hand : players) {
@@ -28,50 +30,66 @@ public class Cardgame {
             }
         }
 
-        System.out.println("Player 1's Hand:");
-        System.out.println(player1Hand);
-        System.out.println("Player 2's Hand:");
-        System.out.println(player2Hand);
-        System.out.println("Player 3's Hand:");
-        System.out.println(player3Hand);
-        System.out.println("Player 4's Hand:");
-        System.out.println(player4Hand);
-        System.out.println("Player 5's Hand:");
-        System.out.println(player5Hand);
+        boolean gameOver = false;
+        while (!gameOver) {
+            for (Hand currentPlayerHand : players) {
+                System.out.println("\n--- " + currentPlayerHand.getName() + "'s turn ---");
+                currentPlayerHand.displayHand();
+                boolean isPlayingTurn = true;
+                while (isPlayingTurn) {
+                    System.out.println(currentPlayerHand.getName() + ", do you want another card? (Enter 1 for Yes, 0 for No)");
+                    int choice = getUserNumericInput(scanner);
 
-        Hand winner = determineWinner(players);
-        if (winner != null) {
-            System.out.println(winner.owner + " is the winner" + " (highest single card):");
-            System.out.println();
-            System.out.println(winner);
-        } else {
-            System.out.println("\nNo winner determined.");
-        }
-    }
+                    if (choice == 1) {
+                        System.out.println("Dealing a card to " + currentPlayerHand.getName() + "...");
+                        Card newCard = deck.dealCard();
+                        if (newCard != null) {
+                            currentPlayerHand.addCard(newCard);
+                            System.out.println(currentPlayerHand.getName() + " drew the " + newCard);
+                            System.out.println(currentPlayerHand.getName() + " Ending turn.");
+                        isPlayingTurn = false;
 
-    // Determines the winner based on the highest single card in their hand
-    public static Hand determineWinner(ArrayList<Hand> players) {
-        if (players == null || players.isEmpty()) {
-            return null;
-        }
 
-        Hand winner = players.get(0); // takes the first card of each hand to decide the winner
-        int highestCardValue = 0;
-        if (!winner.getCards().isEmpty()) {
-            highestCardValue = winner.getCards().get(0).getValue();
-        }
-
-        for (int i = 1; i < players.size(); i++) {
-            Hand currentPlayerHand = players.get(i);
-            if (!currentPlayerHand.getCards().isEmpty()) {
-                currentPlayerHand.sortHand();
-                int currentCardValue = currentPlayerHand.getCards().get(0).getValue();
-                if (currentCardValue > highestCardValue) {
-                    winner = currentPlayerHand;
-                    highestCardValue = currentCardValue;
+                          
+                            if (currentPlayerHand.checkForRun(4)) { 
+                                System.out.println("\n " + currentPlayerHand.getName() + " ______ wins with a run of 4! _____");
+                                gameOver = true;
+                                isPlayingTurn = false; 
+                            }
+                            
+                            
+                            if (gameOver) {
+                                break;
+                            }
+                            
+                        } else {
+                            System.out.println("The deck is empty. Cannot draw more cards.");
+                            isPlayingTurn = false;
+                        }
+                    } else if (choice == 0) {
+                        System.out.println(currentPlayerHand.getName() + " chose not to draw. Ending turn.");
+                        isPlayingTurn = false;
+                    } else {
+                        System.out.println("Invalid choice. Please enter 1 or 0.");
+                    }
+                }
+                if (gameOver) {
+                    break; 
                 }
             }
         }
-        return winner;
+        scanner.close();
+    }
+
+  
+    private static int getUserNumericInput(Scanner scanner) {
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number (1 or 0).");
+                scanner.next(); 
+            }
+        }
     }
 }
