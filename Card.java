@@ -1,5 +1,5 @@
 // Macy Culbertson
-// Unit 4 game program
+// Unit 4 game program updated
 public class Card implements Comparable<Card> {
   public static final int CLUB = 0;
     public static final int DIAMOND = 1;
@@ -9,7 +9,7 @@ public class Card implements Comparable<Card> {
     public static final int ACE = 1;
     public static final int TWO = 2;
     public static final int THREE = 3;
-    // ... define other ranks as needed (up to 13 for King)
+    
     public static final int TEN = 10;
     public static final int JACK = 11;
     public static final int QUEEN = 12;
@@ -46,7 +46,7 @@ public class Card implements Comparable<Card> {
         switch (rank) {
             case ACE: rankStr = "Ace"; break;
             case TWO: rankStr = "Two"; break;
-            // ... define other ranks strings
+           
             case TEN: rankStr = "Ten"; break;
             case JACK: rankStr = "Jack"; break;
             case QUEEN: rankStr = "Queen"; break;
