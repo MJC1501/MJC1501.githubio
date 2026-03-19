@@ -26,7 +26,7 @@ public class LinkedListWrapper {
         String userInput = scanner.nextLine();
 
         if (userInput.equalsIgnoreCase("yes")) {
-            System.out.println("\n--- Forward List (Press Enter to see next) ---");
+            System.out.println("\n--- Head to Tail List (Press Enter to see next) ---");
             StudentObject student = (StudentObject) studentList.getHead();
             
             if (student != null) {
@@ -38,7 +38,7 @@ public class LinkedListWrapper {
                 }
             }
 
-            System.out.println("\nEnd of list. Press Enter to start backward list...");
+            System.out.println("\nEnd of list. Press Enter to start Tail to Head list...");
             scanner.nextLine();
 
            

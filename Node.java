@@ -4,7 +4,7 @@
 public class Node {
     Node next;
     Node previous;
-    Object data;
+    Player data;
 
     Node(Object data, Node next, Node previous) {
         this.data = data;
@@ -21,6 +21,10 @@ public class Node {
     }
 
    
+    public Node(Player data2) {
+        //TODO Auto-generated constructor stub
+    }
+
     public String getName() {
         return ((StudentObject) data).getName();
     }
