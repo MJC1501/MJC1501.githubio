@@ -1,3 +1,7 @@
+//Macy Culbertson
+//SD class 
+// Stack and queue assignment
+//file defines the queue
 public class Myqueue {
 private stackandqueueNode front, rear;
 

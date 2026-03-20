@@ -1,3 +1,7 @@
+//Macy Culbertson
+//SD class 
+// Stack and queue assignment
+// file controls the program start and the user input
 import java.util.Scanner;
 
 public class stackandqueueoutput {

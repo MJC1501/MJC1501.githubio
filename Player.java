@@ -1,3 +1,7 @@
+//Macy Culbertson
+//SD class 
+// Stack and queue assignment
+// File defines player and the input that is going to be asked for
 public class Player {
     String name;
     String sport;
