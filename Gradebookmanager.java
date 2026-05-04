@@ -1,5 +1,5 @@
 //Macy Culbertson
-//Final Project-- This file the main program functions inlcuding scanner 
+//Final Project-- This main file includes scanner
 // Started 4/27/26
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -33,7 +33,11 @@ public class Gradebookmanager {
                 else if (choice == 4) searchStudent();
                 else if (choice == 5) viewAllStudents();
                 else if (choice == 6) System.out.println("Exiting...");
-                else System.out.println("Invalid option.");
+                
+                if (choice != 6) {
+                    System.out.println("\nPress Enter to return to menu...");
+                    scanner.nextLine();
+                }
             } catch (InputMismatchException e) {
                 System.out.println("Error: Enter a number.");
                 scanner.nextLine();
@@ -43,21 +47,25 @@ public class Gradebookmanager {
     }
 
     public static void addStudentschool() {
-        System.out.print("Enter first name: ");
-        String f = scanner.nextLine();
-        System.out.print("Enter last name: ");
-        String l = scanner.nextLine();
-        
-        studentList.add(new Studentschool(f, l));
+    System.out.print("Enter first name: ");
+    String f = scanner.nextLine();
+    System.out.print("Enter last name: ");
+    String l = scanner.nextLine();
+    
+    studentList.add(new Studentschool(f, l));
 
-        // Basic writer: adds the new student to the end of the file
-        try (FileWriter myWriter = new FileWriter(fileName, true)) {
-            myWriter.write("Added Student: " + f + " " + l + "\n");
-            System.out.println("Student saved to file.");
-        } catch (IOException e) {
-            System.out.println("Error writing to file.");
-        }
+
+    try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName, true)))) {
+        out.println("Added Student: " + f + " " + l);
+        out.flush();
+        
+        
+        File file = new File(fileName);
+        System.out.println("Successfully saved to: " + file.getAbsolutePath());
+    } catch (IOException e) {
+        System.out.println("Error writing to file.");
     }
+}
 
     public static void inputGradesAttendance() {
         System.out.print("Enter student last name: ");
@@ -73,12 +81,14 @@ public class Gradebookmanager {
                     s.attendance = scanner.nextInt();
                     scanner.nextLine(); 
 
-                    // Basic writer: adds the update to the end of the file
                     try (FileWriter myWriter = new FileWriter(fileName, true)) {
-                        myWriter.write(s.lastName + " Update - Grade: " + s.grade + ", Att: " + s.attendance + "\n");
+                        myWriter.write(s.lastName + " Grade: " + s.grade + ", Att: " + s.attendance + "\n");
+                        myWriter.write("------------------------");
+                    } catch (IOException e) {
+                        System.out.println("File error.");
                     }
                     
-                    System.out.println("Data updated and saved to file.");
+                    System.out.println("Data updated!");
                     found = true;
                     break;
                 } catch (InputMismatchException e) {
@@ -96,26 +106,26 @@ public class Gradebookmanager {
         String lastName = scanner.nextLine();
         for (Studentschool s : studentList) {
             if (s.lastName.equalsIgnoreCase(lastName)) {
-                System.out.print("Enter report comments: ");
+                System.out.print("Enter report: ");
                 s.report = scanner.nextLine();
+
                 
-                // Basic writer: adds the report to the end of the file
                 try (FileWriter myWriter = new FileWriter(fileName, true)) {
                     myWriter.write("Report for " + s.lastName + ": " + s.report + "\n");
+                } catch (IOException e) {
+                    System.out.println("File error.");
                 }
-                
-                System.out.println("Report saved to file.");
                 return;
             }
         }
-        System.out.println("Student not found in this session.");
+        System.out.println("Student not found.");
     }
 
     public static void searchStudent() {
-        System.out.print("Search by last name: ");
-        String search = scanner.nextLine().trim().toLowerCase();
+        System.out.print("Search: ");
+        String search = scanner.nextLine();
         for (Studentschool s : studentList) {
-            if (s.lastName.toLowerCase().startsWith(search)) {
+            if (s.lastName.equalsIgnoreCase(search)) {
                 System.out.println("Found: " + s.firstName + " " + s.lastName + " | Grade: " + s.grade);
             }
         }
@@ -123,7 +133,7 @@ public class Gradebookmanager {
 
     public static void viewAllStudents() {
         if (studentList.isEmpty()) {
-            System.out.println("List is empty for this session.");
+            System.out.println("No students in this session.");
         } else {
             for (Studentschool s : studentList) {
                 System.out.println(s.firstName + " " + s.lastName + " - Grade: " + s.grade);
@@ -131,3 +141,6 @@ public class Gradebookmanager {
         }
     }
 }
+
+
+
